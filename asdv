@@ -1,0 +1,85 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    long int a,copie_a;
+    int u_c,valid=0;
+    cin>>a;
+    copie_a=a/10;
+    if(a==0)
+        cout<<8;
+    else if(a>0){
+
+        while(copie_a!=0){
+            if(copie_a%10==8)
+            valid=1;
+            copie_a=copie_a/10;
+        }
+
+        if(valid==1&&a%10!=9)
+        cout<<1;
+
+        else{
+            valid=0;
+            u_c=a%10;
+            if(u_c<8){
+                cout<<8-u_c<<" ";
+            }
+            else{
+                a=a/10;
+                    while(a%10==9 || a%10==7){
+                        if(a%10==7)
+                            valid=1;
+                        a=a/10;
+                    }
+
+                if(valid==1)
+                cout<<10-u_c;
+                else
+                cout<<18-u_c;
+            }
+        }
+    }
+    else if(a<0){
+
+         while(copie_a!=0){
+            if(copie_a%10==-8)
+            valid=1;
+            copie_a=copie_a/10;
+        }
+
+        if(valid==1&&a%10!=0)
+        cout<<1;
+        else{
+            valid=0;
+            u_c=a%10;
+            u_c=u_c*(-1);
+            if(a>=-8)
+            cout<<8+u_c;
+            else{
+                if(u_c==9)
+                cout<<1;
+                else{
+                    a=a/10;
+                    while(a%10==0 ||a%10==-9)
+                    {
+
+                        if(a%10==-9)
+                        valid=1;
+                        a=a/10;
+                    }
+                    if(valid==1)
+                    {
+                     cout<<u_c+1;
+                    }
+                    else
+                    cout<<u_c+2;
+                }
+            }
+        }
+    }
+
+    return 0;
+}
